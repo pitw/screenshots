@@ -85,7 +85,9 @@ class DaemonClient {
       throw 'Error: emulator $emulatorId not started: $event';
     }
 
-    return Future.value(eventInfo[0]['params']['id']);
+    // TODO(tek): don't hardcode this.  load it from screenshot.yaml?
+    return "emulator-5554";
+    //return Future.value(eventInfo[0]['params']['id']);
   }
 
   /// List running real devices and booted emulators/simulators.

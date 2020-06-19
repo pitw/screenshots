@@ -27,13 +27,12 @@ Future<bool> screenshots(
     bool isBuild,
     bool isVerbose = false}) async {
   final screenshots = Screenshots(
-    configPath: configPath,
-    configStr: configStr,
-    mode: mode,
-    flavor: flavor,
-    isBuild: isBuild,
-    verbose: isVerbose
-  );
+      configPath: configPath,
+      configStr: configStr,
+      mode: mode,
+      flavor: flavor,
+      isBuild: isBuild,
+      verbose: isVerbose);
   // run in context
   if (isVerbose) {
     Logger verboseLogger = VerboseLogger(
@@ -442,8 +441,8 @@ Future<String> startEmulator(
 //    await _startAndroidEmulatorOnCI(emulatorId, stagingDir);
 //    return utils.findAndroidDeviceId(emulatorId);
 //  } else {
-    // testing locally, so start emulator in normal way
-    return await daemonClient.launchEmulator(emulatorId);
+  // testing locally, so start emulator in normal way
+  return await daemonClient.launchEmulator(emulatorId);
 //  }
 }
 
@@ -472,7 +471,10 @@ DaemonDevice findRunningDevice(List<DaemonDevice> devices,
     if (device.emulator) {
       if (device.platformType == 'android') {
         // running emulator
-        return device.emulatorId.replaceAll('_', ' ').toUpperCase().contains(deviceName.toUpperCase());
+        return device.emulatorId
+            .replaceAll('_', ' ')
+            .toUpperCase()
+            .contains(deviceName.toUpperCase());
       } else {
         // running simulator
         return device.name.contains(deviceName);
@@ -602,4 +604,3 @@ Future<String> shutdownAndroidEmulator(
 DeviceType getDeviceType(Config config, String deviceName) {
   return config.getDevice(deviceName).deviceType;
 }
-
