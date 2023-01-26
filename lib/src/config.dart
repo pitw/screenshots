@@ -59,8 +59,8 @@ class Config {
 
   List<String> get locales => _processList(_configInfo['locales']);
 
-  List<ConfigDevice> get devices => _devices ??=
-      _processDevices(_configInfo['devices'], isFrameEnabled);
+  List<ConfigDevice> get devices =>
+      _devices ??= _processDevices(_configInfo['devices'], isFrameEnabled);
 
   List<ConfigDevice> get iosDevices =>
       devices.where((device) => device.deviceType == DeviceType.ios).toList();
@@ -97,7 +97,7 @@ class Config {
     // orientation over-rides frame if not in Portait (default)
     if (orientation == null) return device.isFramed;
     return (orientation == Orientation.LandscapeLeft ||
-        orientation == Orientation.LandscapeRight)
+            orientation == Orientation.LandscapeRight)
         ? false
         : device.isFramed;
   }

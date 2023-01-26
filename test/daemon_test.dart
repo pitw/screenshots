@@ -58,7 +58,7 @@ main() {
 
       // wait for exit code
 //      print('exit code:${await daemonClient.exitCode}');
-    }, skip:     true  );
+    }, skip: true);
 
     test('parse daemon result response', () {
       final expected =
@@ -101,7 +101,7 @@ main() {
       final exitCode = await daemonClient.stop;
 //      print('exit code: $exitCode');
       expect(exitCode, 0);
-    }, skip:     true  );
+    }, skip: true);
 
     test('launch android emulator via daemon and shutdown', () async {
       final expected = 'emulator-5554';
@@ -111,7 +111,7 @@ main() {
       final deviceId = await daemonClient.launchEmulator(emulatorId);
       expect(deviceId, expected);
       await shutdownAndroidEmulator(daemonClient, deviceId);
-    }, skip:     true  );
+    }, skip: true);
 
     test('parse ios-deploy response', () {
       final expectedDeviceId = '3b3455019e329e007e67239d9b897148244b5053';
@@ -212,6 +212,6 @@ main() {
       await screenshots.runTestsOnAll();
       // allow other tests to continue
       Directory.current = origDir;
-    }, timeout: Timeout(Duration(minutes: 4)), skip:     true  );
+    }, timeout: Timeout(Duration(minutes: 4)), skip: true);
   });
 }

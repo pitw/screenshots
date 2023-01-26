@@ -19,9 +19,12 @@ class MessageLookup extends MessageLookupByLibrary {
   get localeName => 'fr';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static _notInlinedMessages(_) => <String, Function> {
-    "counterIncrementButtonTooltip" : MessageLookupByLibrary.simpleMessage("Incrément"),
-    "counterText" : MessageLookupByLibrary.simpleMessage("Vous avez appuyé sur le bouton autant de fois:"),
-    "title" : MessageLookupByLibrary.simpleMessage("Exemple de captures d\'écran")
-  };
+  static _notInlinedMessages(_) => <String, Function>{
+        "counterIncrementButtonTooltip":
+            MessageLookupByLibrary.simpleMessage("Incrément"),
+        "counterText": MessageLookupByLibrary.simpleMessage(
+            "Vous avez appuyé sur le bouton autant de fois:"),
+        "title":
+            MessageLookupByLibrary.simpleMessage("Exemple de captures d\'écran")
+      };
 }

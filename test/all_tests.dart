@@ -18,7 +18,6 @@ import 'utils_test.dart' as utils_test;
 import 'base/all_tests.dart' as base_all_tests;
 
 void main() {
-
   base_all_tests.main();
   config_test.main();
   daemon_client_test.main();

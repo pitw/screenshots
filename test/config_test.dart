@@ -1,7 +1,6 @@
 import 'dart:io' as io;
 
 import 'package:screenshots/screenshots.dart';
-import 'package:screenshots/src/config.dart';
 import 'package:screenshots/src/orientation.dart';
 import 'package:screenshots/src/screens.dart';
 import 'package:screenshots/src/utils.dart';
@@ -181,7 +180,7 @@ main() {
         staging: $tmpDir
       ''';
       final config = Config(configStr: configStr);
-      final screens = await Screens();
+      final screens = Screens();
       await screens.init();
       final orientation = 'Portrait';
 

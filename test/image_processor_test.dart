@@ -152,8 +152,8 @@ main() {
       };
 
       when(mockImageMagick.compare(any, any)).thenReturn(false);
-      when(mockImageMagick.getDiffImagePath(any)).thenReturn(
-          'test/resources/diff file${ImageMagick.kDiffSuffix}.png');
+      when(mockImageMagick.getDiffImagePath(any))
+          .thenReturn('test/resources/diff file${ImageMagick.kDiffSuffix}.png');
 
       final failedCompare = await ImageProcessor.compareImages(
           deviceName, recordingDir, comparisonDir);

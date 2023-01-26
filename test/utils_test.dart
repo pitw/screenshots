@@ -4,12 +4,9 @@ import 'package:path/path.dart' hide equals;
 import 'package:process/process.dart';
 import 'package:screenshots/src/daemon_client.dart';
 import 'package:screenshots/src/utils.dart';
-import 'package:test/test.dart';
 import 'package:tool_base/tool_base.dart';
 import 'package:tool_base_test/tool_base_test.dart';
 import 'package:tool_mobile/tool_mobile.dart';
-
-import 'src/common.dart';
 
 class FakeAndroidSDK extends Fake implements AndroidSdk {
   @override
@@ -64,9 +61,8 @@ main() {
         FileSystem: () => mockFileSystem,
         ProcessManager: () => fakeProcessManager,
         Platform: () => FakePlatform.fromPlatform(const LocalPlatform())
-          ..environment = {
-            'HOME': ''
-          },    });
+          ..environment = {'HOME': ''},
+      });
     });
 
     group('not in context', () {

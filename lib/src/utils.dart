@@ -415,8 +415,7 @@ Future<bool> isEmulatorPath() async {
 }
 
 /// Run command and return stdout as [string].
-String cmd(List<String> cmd,
-    {String workingDirectory, bool silent = true}) {
+String cmd(List<String> cmd, {String workingDirectory, bool silent = true}) {
   final result = processManager.runSync(cmd,
       workingDirectory: workingDirectory, runInShell: true);
   _traceCommand(cmd, workingDirectory: workingDirectory);

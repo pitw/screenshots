@@ -23,7 +23,7 @@ Future<bool> isValidConfig(
     }
   }
 
-  final isDeviceAttached = (device) => device != null;
+  isDeviceAttached(device) => device != null;
 
   // validate android device
   if (config.isRunTypeActive(DeviceType.android)) {
@@ -42,7 +42,8 @@ Future<bool> isValidConfig(
           !isEmulatorInstalled(allEmulators, configDevice.name)) {
         printError('No device attached or emulator installed for '
             'device \'${configDevice.name}\' in $configPath.');
-        printError('  Either remove \'${configDevice.name}\' from $configPath or '
+        printError(
+            '  Either remove \'${configDevice.name}\' from $configPath or '
             'attach/install the matching device/emulator');
         isValid = false;
         showDeviceGuide = true;
@@ -69,7 +70,8 @@ Future<bool> isValidConfig(
             !isSimulatorInstalled(simulators, configDevice.name)) {
           printError('No device attached or simulator installed for '
               'device \'${configDevice.name}\' in $configPath.');
-          printError('  Either remove \'${configDevice.name}\' from $configPath or '
+          printError(
+              '  Either remove \'${configDevice.name}\' from $configPath or '
               'attach/install the matching device/simulator');
           showDeviceGuide = true;
           isValid = false;
@@ -137,7 +139,9 @@ bool isValidTestPaths(String driverArgs) {
   // if invalid path found during matching return, otherwise check default path
   return !(isInvalidPath
       ? isInvalidPath
-      : matchFound ? isInvalidPath : !pathExists(driverArgs));
+      : matchFound
+          ? isInvalidPath
+          : !pathExists(driverArgs));
 }
 
 /// Check if an emulator is installed.
@@ -239,9 +243,10 @@ void screenGuide(Screens screens) {
 void _printAttachedDevices(List<DaemonDevice> devices) {
   for (final device in devices) {
 //    if (device.emulator == false) {
-      device.platform == 'ios'
-          ? printStatus('    ${device.iosModel} (${device.id})')
-          : printStatus('    ${device.emulator?'${device.emulatorId}':'${device.name}'} (${device.id})');
+    device.platform == 'ios'
+        ? printStatus('    ${device.iosModel} (${device.id})')
+        : printStatus(
+            '    ${device.emulator ? device.emulatorId : device.name} (${device.id})');
 //    }
   }
 }
@@ -260,8 +265,9 @@ void _printSimulators() {
           : thisSim.compareTo(otherSim));
   if (simulatorNames.isNotEmpty) {
     printStatus('\n  Installed simulators:');
-    simulatorNames.forEach((simulatorName) =>
-        printStatus('    $simulatorName'));
+    for (var simulatorName in simulatorNames) {
+      printStatus('    $simulatorName');
+    }
   }
 }
 

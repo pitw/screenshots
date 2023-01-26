@@ -2,10 +2,10 @@ name: screenshots
 description: Auto-generation of screenshots for Apple and Play Stores using emulators, simulators and real devices. Includes support for multiple locales and framing. Compatible with fastlane.
 version: 2.1.2
 homepage: https://github.com/mmcc007/screenshots
-author: Maurice McCabe <mmcc007@gmail.com>
+publish_to: none
 
 environment:
-  sdk: '>=2.2.2 <3.0.0'
+  sdk: ">=2.2.2 <3.0.0"
 
 # TODO(tek08): I don't have control of pub.dev for these packages, so for now,
 #   either folks can depend on them path-wise, or can point to my git repos.
@@ -22,27 +22,27 @@ dependencies:
   platform: ^3.1.0
   process: ^4.2.4
   resource: ^2.1.5
-#  tool_mobile: ^1.9.6
+  #  tool_mobile: ^1.9.6
   tool_mobile:
     git: https://github.com/tek08/tool_mobile.git
-#    path: ../tool_mobile
+  #    path: ../tool_mobile
   yaml: ^3.1.1
 
 dev_dependencies:
   test: ^1.22.2
   test_api: ^0.4.18
   mockito: ^5.3.2
-  pedantic: ^1.8.0+1
-  quiver: '>=2.0.0 <3.0.0'
-#  fake_process_manager: ^0.1.1
+  quiver: ^3.2.1
+  #  fake_process_manager: ^0.1.1
   fake_process_manager:
     git: https://github.com/tek08/fake_process_manager.git
-#    path: ../fake_process_manager
-#  tool_base_test: ^1.0.1
+  #    path: ../fake_process_manager
+  #  tool_base_test: ^1.0.1
   tool_base_test:
     git: https://github.com/tek08/tool_base_test.git
-#    path: ../tool_base_test/
+  #    path: ../tool_base_test/
   collection: any
+  lints: ^2.0.1
 
 executables:
   screenshots: main

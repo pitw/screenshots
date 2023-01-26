@@ -163,12 +163,14 @@ class ImageMagick {
   }
 }
 
-
 /// Check Image Magick is installed.
 Future<bool> isImageMagicInstalled() async {
   try {
     return await runInContext<bool>(() {
-      return runCmd(platform.isWindows ? ['magick', '-version'] : ['convert', '-version']) == 0;
+      return runCmd(platform.isWindows
+              ? ['magick', '-version']
+              : ['convert', '-version']) ==
+          0;
     });
   } catch (e) {
     return false;
