@@ -122,11 +122,8 @@ class ImageMagick {
 
   /// Append diff suffix [kDiffSuffix] to [imagePath].
   String getDiffImagePath(String imagePath) {
-    final diffName = p.dirname(imagePath) +
-        '/' +
-        p.basenameWithoutExtension(imagePath) +
-        kDiffSuffix +
-        p.extension(imagePath);
+    final diffName =
+        '${p.dirname(imagePath)}/${p.basenameWithoutExtension(imagePath)}$kDiffSuffix${p.extension(imagePath)}';
     return diffName;
   }
 

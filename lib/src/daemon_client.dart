@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:meta/meta.dart';
 import 'package:screenshots/src/utils.dart';
@@ -68,7 +67,7 @@ class DaemonClient {
         'emulatorId': emulatorId,
       },
     };
-    await _sendCommand(command);
+    _sendCommand(command);
 
     // wait for expected device-added-emulator event
     // Note: future does not complete if emulator already running
@@ -314,8 +313,7 @@ class DaemonDevice extends BaseDevice {
 
   @override
   String toString() {
-    return super.toString() +
-        ' platform: $platform, emulator: $emulator, ephemeral: $ephemeral, emulatorId: $emulatorId, iosModel: $iosModel';
+    return '${super} platform: $platform, emulator: $emulator, ephemeral: $ephemeral, emulatorId: $emulatorId, iosModel: $iosModel';
   }
 }
 
